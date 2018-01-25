@@ -1,0 +1,52 @@
+# thymeleaf
+spring:
+  thymeleaf:
+    cache: true
+    enabled: true
+    content-type: text/html
+    encoding: UTF-8
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/seckill?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+#    url: jdbc:mysql://192.168.31.230:3306/seckill?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+#    password: 123456
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    tomcat:
+      initial-size: 1
+      max-wait: 20
+      min-idle: 3
+      max-age: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+
+# http://www.mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 3000
+  type-aliases-package: com.bluefish.seckill.model
+  mapper-locations: classpath:com/bluefish/seckill/mapper/*.xml
+
+# redis
+redis:
+#  host: 192.168.31.230
+  host: 127.0.0.1
+  port: 6379
+  timeout: 3000
+#  password: 123456
+  poolMaxTotal: 10
+  poolMaxIdle: 10
+  poolMaxWait: 3000
+
+
+
