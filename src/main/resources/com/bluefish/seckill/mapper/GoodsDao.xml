@@ -25,4 +25,8 @@
         WHERE
           mg.goods_id = #{goodsId}
     </select>
+
+    <update id="reduceStock" parameterType="com.bluefish.seckill.model.MiaoshaGoods">
+        update miaosha_goods set stock_count = stock_count - 1 where goods_id = #{goodsId}
+    </update>
 </mapper>

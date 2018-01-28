@@ -1,5 +1,6 @@
 package com.bluefish.seckill.dao;
 
+import com.bluefish.seckill.model.MiaoshaGoods;
 import com.bluefish.seckill.vo.GoodsVo;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -15,4 +16,6 @@ public interface GoodsDao {
     List<GoodsVo> listGoods();
 
     GoodsVo getGoodsDetailById(long goodsId);
+
+    int reduceStock(MiaoshaGoods g);
 }
