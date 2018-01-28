@@ -9,11 +9,11 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/seckill?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
-#    url: jdbc:mysql://192.168.31.230:3306/seckill?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+#    url: jdbc:mysql://127.0.0.1:3306/seckill?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://192.168.31.230:3306/seckill?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     username: root
-#    password: 123456
-    password: root
+    password: 123456
+#    password: root
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     tomcat:
@@ -39,11 +39,11 @@ mybatis:
 
 # redis
 redis:
-#  host: 192.168.31.230
-  host: 127.0.0.1
+  host: 192.168.31.230
+#  host: 127.0.0.1
   port: 6379
   timeout: 3000
-#  password: 123456
+  password: 123456
   poolMaxTotal: 10
   poolMaxIdle: 10
   poolMaxWait: 3000
