@@ -14,4 +14,5 @@ public interface OrderDao {
     long insert(OrderInfo orderInfo);
 
     int insertMiaoshaOrder(MiaoshaOrder miaoshaOrder);
+
 }
