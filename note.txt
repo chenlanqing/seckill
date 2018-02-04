@@ -1,0 +1,34 @@
+1.jmeter 压测:
+2.redis 压测工具：
+    (1).redis-benchmark -h 127.0.0.1 -p 6379 -c 100 -n 100000
+        100个并发连接，100000个请求，检测host为localhost 端口为6379的redis服务器性能
+    (2).redis-benchmark -h 127.0.0.1 -p 6379 -q -d 100
+        测试存取大小为100字节的数据包的性能
+    (3).redis-benchmark -t set,lpush -n 100000 -q
+        只测试某些操作的性能
+    (4).redis-benchmark -n 100000 -q script load "redis.call('set','foo','bar')"
+        只测试某些数值存取的性能
+3.Spring boot 打war包需要在pom加上的配置：
+    (1).添加 spring-boot-starter-tomcat 的 provided 依赖,只需要在编译时应用即可,运行时有spring-boot内置的tomcat
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    (2).添加 maven-war-plugin 插件:
+           <build>
+               <finalName>${project.artifactId}</finalName> <!-- 打包后的war包名称 -->
+               <plugins>
+                   <plugin>
+                       <groupId>org.apache.maven.plugins</groupId>
+                       <artifactId>maven-war-plugin</artifactId>
+                       <configuration>
+                           <failOnMissingWebXml>false</failOnMissingWebXml>
+                       </configuration>
+                   </plugin>
+               </plugins>
+           </build>
+    (3).修改 packaging 为 war:
+        <packaging>war</packaging>
+4.压测试发现秒杀存在问题:
+    (1).超卖:库存减成负数了
